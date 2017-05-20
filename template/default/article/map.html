@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{$GLOBALS['S']['keywords']}-{$type['classname']}</title>
+        <meta NAME="Keywords" CONTENT="{$GLOBALS['S']['keywords']}" />
+        <meta name="description" content="{$GLOBALS['S']['description']}"/>
+        <link href="/skin/default/css/bootstrap.min.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+          <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+         <link href="/skin/default/css/common.css" rel="stylesheet">
+         <link href="/skin/default/css/map.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="content-body">
+            {include="head.html"}
+            <div class="content">
+                <div class="banner">
+                    <img src="{$type['litpic']}">
+                </div>
+                <div class="header-title">
+                    <img src="/skin/default/images/map-icon_1.jpg" height="15"> <span>{$type['classname']}</span>
+                </div>
+                <div class="lc_content">
+                    <div class="lc_content_list">
+                        <div class="map_list">
+                            <h5><a href="/">首页</a></h5>
+                        </div>
+                        {loop table="classtype" as="v"}
+                            <div class="map_list">
+                                <h5>{$v['classname']}</h5>
+                                <ul>
+                                    <?php if ($v['tid'] == 24) { ?>
+                                        {loop table="channel" molds="cangku" tid="24"  as="item" orderby="tid|asc"}
+                                            <li><a href="{$item['url']}">{$item['title']}</a></li>
+                                        {/loop}
+                                    <?php } else if($v['tid'] == 26) { ?>
+                                        {loop table="channel" molds="caozuo" tid="26"  as="item" orderby="tid|asc"}
+                                            <li><a href="{$item['url']}">{$item['title']}</a></li>
+                                        {/loop}
+                                    <?php } else { ?>
+                                        {loop table="classtype" pid="$v['tid']" as="item"}
+                                            <li><a href="{$item['url']}">{$item['classname']}</a></li>
+                                        {/loop}
+                                    <?php } ?>
+
+                                </ul>
+                            </div>
+                        {/loop}
+                    </div>
+                </div>
+                
+            </div>
+            {include="bottom.html"}
+        </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/skin/default/js/bootstrap.min.js"></script>
+    <script src="/skin/default/js/header.js"></script>
+    <script src="/skin/default/js/index.js"></script>
+    </body>
+</html>

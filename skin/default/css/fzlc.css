@@ -1,0 +1,52 @@
+.lc_content {
+    width:1000px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.lc_content_list {
+    margin:35px 25px;
+}
+
+.lc_title {
+    font-size: 16px;
+    color:#0088c7;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.lc_lsit {
+    border-left: 2px solid #ccc;
+    margin: 0 5px;
+    overflow: auto;
+    padding-bottom: 10px;
+}
+
+.lc_lsit_end {
+    margin: 0 6px;
+    overflow: auto;
+}
+
+.lc_icon {
+    background: url('../images/lc-icon.png') no-repeat;
+    width: 15px;
+    height: 14px;
+    margin-left: -7px;
+    float: left;
+    position: absolute;
+}
+
+.detail {
+    float:left;
+    margin-left: 25px;
+}
+
+.detail > p {
+    color:#eda200;
+    font-size: 12px;
+}
+
+.detail > h5 {
+    font-size:15px;
+}

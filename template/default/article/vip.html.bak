@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{$GLOBALS['S']['keywords']}-{$type['classname']}</title>
+        <meta NAME="Keywords" CONTENT="{$GLOBALS['S']['keywords']}" />
+        <meta name="description" content="{$GLOBALS['S']['description']}"/>
+        <link href="/skin/default/css/bootstrap.min.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+          <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+         <link href="/skin/default/css/common.css" rel="stylesheet">
+         <link href="/skin/default/css/vip.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="content-body">
+            {include="head.html"}
+            {loop table="classtype" tid="$type['pid']" body="1" limit="1" as="v"}
+                <?php $parent = $v;?>
+            {/loop}
+            <div class="content">
+                <div class="banner">
+                    <img src="{$parent['litpic']}">
+                </div>
+                <div class="header-title">
+                    <img src="/skin/default/images/search-icon.jpg" height="15"> <span>{$parent['classname']}</span>
+                    <div class="tab-navigate">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <?php $i=1;?>
+                            {loop table="classtype"  pid="$type['pid']"  as="v"}
+                                <li class="<?php if ($v['tid'] == $type['tid'] || ($type['tid'] == $v['pid'] && $i==1) ) {?> active <?php } ?>" role="presentation">
+                                    <a href="{$v['url']}">{$v['classname']}</a>
+                                </li>
+                                <?php $i++;?>
+                            {/loop}
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="caozuo-body">
+                    <div class="login-bg">
+                        <h5>请先登录</h5>
+                        <input type="hidden" name="en" value="zh">
+                        <div class="login-content">
+                            
+                            <form class="form-horizontal login-form" method="POST" onsubmit="return checkform(this)">
+								<div class="select-en">
+                                <div class="zh">
+                                    <img src="/skin/default/images/check-icon.png">&nbsp;&nbsp;&nbsp;&nbsp;简体中文
+                                </div>
+                                <div class="en">
+                                    <img src="/skin/default/images/radio.icon.png">&nbsp;&nbsp;&nbsp;&nbsp;ENGLISH
+                                </div>
+								</div>
+                                <div class="form-group">
+                                    <select id="Select1" name="Select1" class="form-control">
+										<option value="EBKEY" id="dbid1">恩原国际</option>
+                                        <option value="EBKHQ" id="dbid2">合庆仓库</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="username" name="username" class="form-control" placeholder="用户名">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="userpass" class="form-control" name="userpass" placeholder="密码">
+                                </div>
+                                <div class="form-group remember">
+                                    <img src="/skin/default/images/radio-down.png">&nbsp;&nbsp;<span>记住我</span>
+                                </div>
+                                
+                                <div class="form-group submit">
+                                    <input type="submit" class="btn btn-warning" value="登 录">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            {include="bottom.html"}
+        </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/skin/default/js/bootstrap.min.js"></script>
+    <script src="/skin/default/js/header.js"></script>
+    <script src="/skin/default/js/vip.js?v=1"></script>
+    </body>
+</html>

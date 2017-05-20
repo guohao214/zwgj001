@@ -1,0 +1,30 @@
+.tab-navigate {
+    margin-top: 20px;
+    font-weight: 100;
+    font-size: 15px;
+}
+
+.nav-tabs {
+  border-bottom: 0;
+}
+.nav-tabs>li>a{
+    border-color:#eee #eee #ddd;
+    background-color: #eee;
+    color:#555;
+}
+
+.caozuo-body {
+    width:1100px;
+    margin: 0 auto;
+    border: 1px #ccc solid;
+    border-radius:5px;
+    margin-top: -16px;
+    padding:20px;
+}
+
+.header-title {
+    width:1100px;
+}
+
+
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{$GLOBALS['S']['keywords']}-{$type['classname']}</title>
+        <meta NAME="Keywords" CONTENT="{$GLOBALS['S']['keywords']}" />
+        <meta name="description" content="{$GLOBALS['S']['description']}"/>
+        <link href="/skin/default/css/bootstrap.min.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+          <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+         <link href="/skin/default/css/common.css" rel="stylesheet">
+         <link href="/skin/default/css/chedui.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="content-body">
+            {include="head.html"}
+            {loop table="classtype" tid="$type['pid']" body="1" limit="1" as="v"}
+                <?php $parent = $v;?>
+            {/loop}
+            <div class="content">
+                <div class="banner">
+                    <img src="{$parent['litpic']}">
+                </div>
+                <div class="header-title">
+                    <img src="/skin/default/images/chedui-icon.jpg" height="15"> <span>{$parent['classname']}</span> <img src="/skin/default/images/right-icon.jpg" height="15"> <span>{$type['classname']}</span>
+                </div>
+                <div class="chedui-top">
+                    <div class="chedui-top-info">
+                        <div class="chedui-top-info-img">
+                            <img src="{$type['litpic']}">
+                        </div>
+                        <div class="chedui-top-info-detail">
+                                {$type['body']}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="header-title">
+                    <img src="/skin/default/images/chedui-tel.jpg" height="15"><span>{$type['classname']}联系表</span>
+                    <div class="chedui-address"><p>地址：{$type['description']}</p></div>
+                </div>
+                
+                <div class="chedui-list">
+                    <!--<div class="chedui-list-border">-->
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>姓名</th>
+                                    <th>职务</th>
+                                    <th>办公室电话</th>
+                                    <th>手机</th>
+                                    <th>企业QQ</th>
+                                    <th>传真</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {loop table="channel" molds="busteam" tid="$type['tid']"  as="v"}
+                                <tr>
+                                    <td>{$v['id']}</td>
+                                    <td>{$v['title']}</td>
+                                    <td>{$v['positon']}</td>
+                                    <td>{$v['telphone']}</td>
+                                    <td>{$v['phone']}</td>
+                                    <td>{$v['qq']}</td>
+                                    <td>{$v['fax']}</td>
+                                </tr>
+                                {/loop}
+                            </tbody>
+                        </table>
+                    <!--</div>-->
+                </div>
+                {loop table="classtype" pid="$type['tid']" body="1" limit="1" as="v"}
+                    <?php $bus = $v;?>
+                {/loop}
+                
+                
+                {loop table="channel" molds="show_image" tid="$bus['tid']"  as="v" orderby="id|asc"}
+                <div class="header-title">
+                    <img src="/skin/default/images/chedui-icon.jpg" height="15"><span>{$type['classname']}车队风采</span>
+                </div>
+                <div class="list">
+                    <div class="list-content">
+                        <?php
+                            $array = array(',|','|');
+                            $image = str_replace($array,'',$v['bus_images']);
+                            $image = explode('-',$image);
+                        ?>
+                        <div class="image-list"> 
+                            <?php if (! empty($image[0])):?>
+                            <?php $i=1; ?>
+                            <?php foreach($image as $item): ?>
+                                <div class="content-images <?php if ($i%3 != 1) :?>left-margin<?php endif; ?>">
+                                    <div class="hd-image">
+                                        <img src="{$item}">
+                                    </div>
+                                </div>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+                {/loop}
+            </div>
+            {include="bottom.html"}
+        </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/skin/default/js/bootstrap.min.js"></script>
+    <script src="/skin/default/js/header.js"></script>
+    <script src="/skin/default/js/index.js"></script>
+    </body>
+</html>

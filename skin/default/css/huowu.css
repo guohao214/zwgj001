@@ -1,0 +1,48 @@
+.tab-navigate {
+    margin-top: 20px;
+    font-weight: 100;
+    font-size: 15px;
+}
+
+.nav-tabs {
+  border-bottom: 0;
+}
+.nav-tabs>li>a{
+    border-color:#eee #eee #ddd;
+    background-color: #eee;
+    color:#555;
+}
+
+.caozuo-body {
+    width:1000px;
+    margin: 0 auto;
+    border: 1px #ccc solid;
+    border-radius:5px;
+    margin-top: -16px;
+}
+
+.hw_body {
+    margin: 40px 34px;
+    overflow: auto;
+}
+
+.margin-left {
+    margin-left: 30px;
+}
+
+.hw_content {
+    width:290px;
+    float: left;
+}
+.hw_content > img {
+    width:100%;
+}
+
+.hw_title {
+    font-size: 16px;
+    color: #fff;
+    background-color:#0088c7;
+    padding: 10px 0;
+    border: 1px dashed #ccc;
+}
+

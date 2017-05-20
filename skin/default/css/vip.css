@@ -1,0 +1,82 @@
+.tab-navigate {
+    margin-top: 20px;
+    font-weight: 100;
+    font-size: 15px;
+}
+
+.nav-tabs {
+  border-bottom: 0;
+}
+.nav-tabs>li>a{
+    border-color:#eee #eee #ddd;
+    background-color: #eee;
+    color:#555;
+}
+
+.caozuo-body {
+    width:1000px;
+    margin: 0 auto;
+    border: 1px #ccc solid;
+    border-radius:5px;
+    margin-top: -16px;
+}
+
+.login-bg {
+    background: url(../images/login-bg.png) center no-repeat;
+    background-size: 80%;
+    width:600px;
+    height:400px;
+    margin:24px auto;
+}
+
+.login-bg >h5 {
+    margin-left: 62px;
+    /*padding-top:30px;*/
+    font-size:15px;
+    font-weight: 600;
+}
+
+.login-content {
+    width: 344px;
+    margin: 44px auto;
+}
+
+.select-en {
+    overflow: auto;
+    margin: 10px -12px;
+}
+
+.zh {
+    float: left;
+    line-height: 17px;
+}
+.zh > img {
+    height:17px;
+    cursor: pointer;
+}
+
+.en {
+    float: left;
+    margin-left:20px;
+    line-height: 17px;
+}
+.en > img {
+    height:17px;
+    cursor: pointer;
+}
+
+.login-form {
+    margin: 20px 38px;
+}
+
+
+.remember > img{
+    height: 15px;
+    cursor: pointer;
+}
+
+.submit > input {
+    width:100%;
+}
+
+

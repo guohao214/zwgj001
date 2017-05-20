@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{$GLOBALS['S']['title']}</title>
+        <meta NAME="Keywords" CONTENT="{$GLOBALS['S']['keywords']}" />
+        <meta name="description" content="{$GLOBALS['S']['description']}"/>
+        <link href="/skin/default/css/bootstrap.min.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+          <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+         <link href="/skin/default/css/common.css" rel="stylesheet">
+         <link href="/skin/default/css/index.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="content-body">
+            {include="head.html"}
+            <div class="content">
+                <div class="banner">
+                    <div data-ride="carousel" class="carousel slide" id="carousel-example-generic">
+                        <div role="listbox" class="carousel-inner">
+                            <?php $i=0; ?>
+                            {loop table="ads" taid="1" type="1" limit="5" as="v"}
+                                <div class="item {if($i==0)}active{/if}">
+                                    <img alt="{$v['name']}" src="{$v['adfile']}" data-holder-rendered="true">
+                                </div>
+                                <?php $i++;?>
+                            {/loop}
+
+                        </div>
+                        <a data-slide="prev" role="button" href="#carousel-example-generic" class="left carousel-control">
+                            <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a data-slide="next" role="button" href="#carousel-example-generic" class="right carousel-control">
+                            <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="cangku-info">
+                    <div class="cangku-title">
+                        <img src="/skin/default/images/house-icon.jpg" height="16">仓库信息
+                    </div>
+                    <div class="cangku-show" id="Marquee_x">
+                        <ul>
+                            <li>
+                        <?php $i=0; ?>
+                        {loop table="channel" molds="cangku" tid="24"  as="v" limit="10"}
+                            <?php $i++; ?>
+                            <div class="cangku-image-area1">
+                                <div class="cangku-image-info">
+                                    <a href={$v['url']}><div class="cangku-image">
+                                        <img src="{$v['cangku_image']}">
+                                        <div class="cangku-info-fugai">
+                                            <div class="cangku-description">
+                                                <p>占地：<span>{$v['zhandi']}</span>m²</p>
+                                                <p>{$v['image_description']}</p>
+                                            </div>
+                                        </div>
+                                        </div></a>
+                                    <div class="cangku-info-detail">
+                                        <div class="cangku-info-name">
+                                            {$v['title']}
+                                        </div>
+                                        <div class="cangku-info-phone">
+                                            <i class="phone-icon"></i>
+                                            {$v['telphone']}
+                                        </div>
+                                    </div>
+                                    <div class="cangku-address">
+                                        <i class="address-icon"></i>
+                                        <div class="cangku-address-info">{$v['address']}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        {/loop}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+           {include="bottom.html"}
+        </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/skin/default/js/bootstrap.min.js"></script>
+    <script src="/skin/default/js/header.js"></script>
+    <script src="/skin/default/js/index.js"></script>
+    <script src="/skin/default/js/jQuery-jcMarquee.js"></script>
+    <script>
+    $(function(){
+        $('#Marquee_x').jcMarquee({ 'marquee':'x','margin_right':'10px','speed':20 });
+    });
+    </script>
+    </body>
+</html>

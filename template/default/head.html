@@ -1,0 +1,67 @@
+<div class="header">
+    <div class="top-info" style="margin-top: 0px;">
+        <div class="logo-info">
+            <img src="/skin/default/images/logo1.png" height="85" style=""><!--<span>{$GLOBALS['S']['title']}</span>-->
+        </div>
+        <div class="top-info-right" style="margin-top: 35px;">
+            {loop table="classtype" tid="44"  as="v" limit="1"}
+            <div class="<?php if ($type['tid'] == '44' || $type['pid'] == '44') { ?>header-top-select <?php } ?> header-top"><a href="{$v['url']}"><img src="<?php if ($type['tid'] == '44' || $type['pid'] == '44') { ?>/skin/default/images/map-icon-select.png<?php } else { ?>/skin/default/images/map-icon.jpg <?php } ?>" height="15"> {$v['classname']}</a>&nbsp;&nbsp;</div>
+            {/loop}
+             {loop table="classtype" tid="41"  as="v" limit="1"}
+                {loop table="classtype" pid="$v['tid']"  as="a" limit="1"}
+                    <div class="header-top <?php if ($type['tid'] == '41' || $type['pid'] == '41') { ?>header-top-select <?php } ?>"><a href="{$a['url']}"><img src="<?php if ($type['tid'] == '41' || $type['pid'] == '41') { ?>/skin/default/images/search-icon-select.png<?php } else { ?>/skin/default/images/search-icon.jpg<?php } ?>" height="15"> {$v['classname']}</a>&nbsp;&nbsp;</div>
+                {/loop}
+            {/loop}
+            {loop table="classtype" tid="37"  as="v" limit="1"}
+                {loop table="classtype" pid="$v['tid']"  as="a" limit="1"}
+                    <div class="header-top <?php if ($type['tid'] == '37' || $type['pid'] == '37') { ?>header-top-select <?php } ?>">
+                        <a href="{$a['url']}"><img src="<?php if ($type['tid'] == '37' || $type['pid'] == '37') { ?>/skin/default/images/custom-icon-select.png<?php } else { ?>/skin/default/images/custom-icon.jpg<?php } ?>" height="15"> {$v['classname']}</a>
+                    </div>
+                {/loop}
+            {/loop}
+        </div>
+    </div>
+    <nav class="navbar">
+        <ul class="nav navbar-nav">
+            <li class="text-center mainmenu {if($type['tid'] == '')}active{/if}">
+                <a href="/">首页</a>
+            </li>
+            {loop table="classtype" limit="10"}
+                <?php if ($v['tid'] == 24) {?>
+                <li class="text-center mainmenu {if($type['pid'] == $v['tid'] || $type['tid'] == $v['tid'] )}active{/if}">
+                    <a  data-toggle="dropdown" href="{$v['url']}">
+                       {$v['classname']}
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            {loop table="channel" molds="cangku" tid="24"  as="a" orderby="tid|asc"}
+                            <a href="{$a['url']}" class="text-center">{$a['title']}</a>
+                            {/loop}    
+                        </li>
+                    </ul>
+                </li>
+               <?php } else if ($v['tid'] == 25 || $v['tid'] == 27 || $v['tid'] == 47){ ?>
+                    <li class="text-center mainmenu {if($type['pid'] == $v['tid'] || $type['tid'] == $v['tid'] )}active{/if}">
+                    <a  data-toggle="dropdown" href="{$v['url']}">
+                       {$v['classname']}
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            {loop table="classtype" pid="$v['tid']"  as="a"}
+                            <a href="{$a['url']}" class="text-center">{$a['classname']}</a>
+                            {/loop}    
+                        </li>
+                    </ul>
+                </li>
+               <?php } else if ($v['tid'] == 26){ ?>
+               <li class="text-center mainmenu {if($type['pid'] == $v['tid'] || $type['tid'] == $v['tid'] )}active{/if}">
+                    <a  href="{$v['url']}">
+                       {$v['classname']}
+                    </a>
+                </li>
+            <?php } else { ?>
+               <?php } ?>
+            {/loop}
+        </ul>
+    </nav>
+</div>

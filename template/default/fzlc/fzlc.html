@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{$GLOBALS['S']['keywords']}-{$type['classname']}</title>
+        <meta NAME="Keywords" CONTENT="{$GLOBALS['S']['keywords']}" />
+        <meta name="description" content="{$GLOBALS['S']['description']}"/>
+        <link href="/skin/default/css/bootstrap.min.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+          <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+         <link href="/skin/default/css/common.css" rel="stylesheet">
+         <link href="/skin/default/css/fzlc.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="content-body">
+            {include="head.html"}
+            {loop table="classtype" tid="$type['pid']" body="1" limit="1" as="v"}
+                <?php $parent = $v;?>
+            {/loop}
+            <div class="content">
+                <div class="banner">
+                    <img src="{$parent['litpic']}">
+                </div>
+                <div class="header-title">
+                    <img src="/skin/default/images/gywm-icon.png" height="15"> <span>{$parent['classname']}</span> <img src="/skin/default/images/right-icon.jpg" height="15"> <span>{$type['classname']}</span>
+                </div>
+                <div class="lc_content">
+                    <div class="lc_content_list">
+                        <div class="lc_title">
+                            {$type['description']}
+                        </div>
+                        <?php $list = array(); ?>
+                        {loop table="channel" molds="fzlc" tid="$type['tid']"  as="v" orderby="id|asc" }
+                            <?php $list[] = $v ;?>
+                        {/loop}
+                        
+                        <?php $count = count($list); ?>
+                        <?php foreach($list as $k => $v): ?>
+                            <div class="lc_lsit<?php if ($k+1 == $count ):?>_end<?php endif; ?>">
+                                <div class="lc_icon"></div>
+                                <div class="detail">
+                                    <p>{$v['title']}</p>
+                                    <h5>{$v['content']}</h5>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                
+            </div>
+            {include="bottom.html"}
+        </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/skin/default/js/bootstrap.min.js"></script>
+    <script src="/skin/default/js/header.js"></script>
+    <script src="/skin/default/js/index.js"></script>
+    </body>
+</html>
