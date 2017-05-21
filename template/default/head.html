@@ -5,17 +5,17 @@
         </div>
         <div class="top-info-right" style="margin-top: 35px;">
             {loop table="classtype" tid="44"  as="v" limit="1"}
-            <div class="<?php if ($type['tid'] == '44' || $type['pid'] == '44') { ?>header-top-select <?php } ?> header-top"><a href="{$v['url']}"><img src="<?php if ($type['tid'] == '44' || $type['pid'] == '44') { ?>/skin/default/images/map-icon-select.png<?php } else { ?>/skin/default/images/map-icon.jpg <?php } ?>" height="15"> {$v['classname']}</a>&nbsp;&nbsp;</div>
+            <div class="<?php if ($type['tid'] == '44' || $type['pid'] == '44') { ?>header-top-select <?php } ?> header-top"><a href="{$v['url']}"><img src="<?php if ($type['tid'] == '44' || $type['pid'] == '44') { ?>/skin/default/images/header-map.png<?php } else { ?>/skin/default/images/header-map.png <?php } ?>" height="15"> {$v['classname']}</a>&nbsp;&nbsp;</div>
             {/loop}
              {loop table="classtype" tid="41"  as="v" limit="1"}
                 {loop table="classtype" pid="$v['tid']"  as="a" limit="1"}
-                    <div class="header-top <?php if ($type['tid'] == '41' || $type['pid'] == '41') { ?>header-top-select <?php } ?>"><a href="{$a['url']}"><img src="<?php if ($type['tid'] == '41' || $type['pid'] == '41') { ?>/skin/default/images/search-icon-select.png<?php } else { ?>/skin/default/images/search-icon.jpg<?php } ?>" height="15"> {$v['classname']}</a>&nbsp;&nbsp;</div>
+                    <div class="header-top <?php if ($type['tid'] == '41' || $type['pid'] == '41') { ?>header-top-select <?php } ?>"><a href="{$a['url']}"><img src="<?php if ($type['tid'] == '41' || $type['pid'] == '41') { ?>/skin/default/images/query.png<?php } else { ?>/skin/default/images/query.png<?php } ?>" height="15"> {$v['classname']}</a>&nbsp;&nbsp;</div>
                 {/loop}
             {/loop}
             {loop table="classtype" tid="37"  as="v" limit="1"}
                 {loop table="classtype" pid="$v['tid']"  as="a" limit="1"}
                     <div class="header-top <?php if ($type['tid'] == '37' || $type['pid'] == '37') { ?>header-top-select <?php } ?>">
-                        <a href="{$a['url']}"><img src="<?php if ($type['tid'] == '37' || $type['pid'] == '37') { ?>/skin/default/images/custom-icon-select.png<?php } else { ?>/skin/default/images/custom-icon.jpg<?php } ?>" height="15"> {$v['classname']}</a>
+                        <a href="{$a['url']}"><img src="<?php if ($type['tid'] == '37' || $type['pid'] == '37') { ?>/skin/default/images/contact.png<?php } else { ?>/skin/default/images/contact.png<?php } ?>" height="15"> {$v['classname']}</a>
                     </div>
                 {/loop}
             {/loop}

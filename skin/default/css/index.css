@@ -1,19 +1,47 @@
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    background-color: rgba(0,0,0,0.5);
-    /* filter: blur(1px); */
-    width: 100%;
-}
+
 .item {
     max-height: 500px;
 }
+
+.about-c {
+    width:1000px;
+    margin: 30px auto;
+    clear: both;
+    overflow: auto;
+    zoom: 1;
+}
+
+.about-c .news {
+    width: 65%;
+    float: left;
+    border: 1px solid #CCCCCC;
+}
+
+.about-c .news .title {
+    color: #0088C7;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.about-c ul {
+    padding: 0;
+    margin: 0;
+}
+.about-c .news ul li {
+    padding: 5px 0;
+    padding-left: 10px;
+    color: black;
+}
+
+.about-c .news ul li a {
+    color: black;
+}
+
 .cangku-info {
+    clear: both;
     width:1000px;
     margin: 40px auto; 
-    
 }
 
 .cangku-title {

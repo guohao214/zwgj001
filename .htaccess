@@ -1,0 +1,25 @@
+# 将 RewriteEngine 模式打开
+RewriteEngine On
+
+# 
+RewriteBase /
+
+# Rewrite 系统规则请勿修改
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^article/(\w+)([0-9]+)\.html$ index.php?c=article&file=$1&page=$2&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^article/type/([0-9]+)-([0-9]+)\.html$ index.php?c=article&a=type&tid=$1&page=$2%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^product/(\w+)([0-9]+)\.html$ index.php?c=product&file=$1&page=$2&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^product/type/([0-9]+)-([0-9]+)\.html$ index.php?c=product&a=type&tid=$1&page=$2%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^channel/(\w+)/(\w+)([0-9]+)\.html$ index.php?c=channel&molds=$1&file=$2&page=$3&%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^channel/type/([0-9]+)-([0-9]+)\.html$ index.php?c=channel&a=type&tid=$1&page=$2%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^message/type/([0-9]+)-([0-9]+)\.html$ index.php?c=message&a=type&tid=$1&page=$2%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^special/([0-9]+)-([0-9]+)\.html$ index.php?c=special&sid=$1&page=$2%1
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(\w+)\.html$ index.php?file=$1%1

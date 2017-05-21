@@ -19,7 +19,7 @@
         <div class="content-body">
             {include="head.html"}
             <div class="content">
-                <div class="banner">
+                <div class="banner" style="margin-top: -130px;">
                     <div data-ride="carousel" class="carousel slide" id="carousel-example-generic">
                         <div role="listbox" class="carousel-inner">
                             <?php $i=0; ?>
@@ -41,11 +41,23 @@
                         </a>
                     </div>
                 </div>
+                <!--<div class="about-c">-->
+                    <!--<div class="news">-->
+                        <!--<div class="title" style=";">新闻</div>-->
+                        <!--<ul class="r">-->
+                            <!--{loop table="article" tid="50" limit="6"}-->
+                            <!--<li><a href="{$v['url']}" target="_blank" style="{$v['style']}">{fun newstr($v['title'],17)}</a></li>-->
+                            <!--{/loop}-->
+                        <!--</ul>-->
+                    <!--</div>-->
+
+                <!--</div>-->
                 <div class="cangku-info">
                     <div class="cangku-title">
                         <img src="/skin/default/images/house-icon.jpg" height="16">仓库信息
                     </div>
                     <div class="cangku-show" id="Marquee_x">
+
                         <ul>
                             <li>
                         <?php $i=0; ?>
