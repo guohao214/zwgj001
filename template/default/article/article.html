@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{$GLOBALS['S']['keywords']}-{$type['classname']}</title>
+        <meta NAME="Keywords" CONTENT="{$GLOBALS['S']['keywords']}" />
+        <meta name="description" content="{$GLOBALS['S']['description']}"/>
+        <link href="/skin/default/css/bootstrap.min.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+          <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+         <link href="/skin/default/css/common.css" rel="stylesheet">
+         <link href="/skin/default/css/map.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="content-body">
+            {include="head.html"}
+            <div class="content">
+                <!--<div class="banner">-->
+                    <!--<img src="{$type['litpic']}">-->
+                <!--</div>-->
+                <div class="header-title">
+                    <div class="position">当前位置：新闻->{$article['title']}</div>
+                </div>
+                <div class="lc_content">
+                    <div class="content-body" style="padding: 10px">
+
+                        <div class="c"><h3>{$article['title']}</h3></div>
+                        <div class="c t">发布时间：{fun date('Y-m-d H:i:s',$article['addtime'])} 点击：<script src="{$GLOBALS['WWW']}index.php?c=article&a=hits&id={$article['id']}" type="text/javascript"></script></div>
+                        <div class="c f2">{$article['body']}</div>
+                        <div class="c"><ul class="pages">{$pages}</ul></div>
+                        <div class="c prev">
+                            {if($aprev)}上一篇：<a href="{$aprev['url']}">{$aprev['title']}</a>{/if}
+                            {if($anext)}下一篇：<a href="{$anext['url']}">{$anext['title']}</a>{/if}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            {include="bottom.html"}
+        </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/skin/default/js/bootstrap.min.js"></script>
+    <script src="/skin/default/js/header.js"></script>
+    <script src="/skin/default/js/index.js"></script>
+    </body>
+</html>

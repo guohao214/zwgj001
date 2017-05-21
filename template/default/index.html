@@ -14,6 +14,7 @@
         <![endif]-->
          <link href="/skin/default/css/common.css" rel="stylesheet">
          <link href="/skin/default/css/index.css" rel="stylesheet">
+         <link href="/skin/default/css/poposlides.css" rel="stylesheet">
     </head>
     <body>
         <div class="content-body">
@@ -41,17 +42,39 @@
                         </a>
                     </div>
                 </div>
-                <!--<div class="about-c">-->
-                    <!--<div class="news">-->
-                        <!--<div class="title" style=";">新闻</div>-->
-                        <!--<ul class="r">-->
-                            <!--{loop table="article" tid="50" limit="6"}-->
-                            <!--<li><a href="{$v['url']}" target="_blank" style="{$v['style']}">{fun newstr($v['title'],17)}</a></li>-->
-                            <!--{/loop}-->
-                        <!--</ul>-->
-                    <!--</div>-->
+                <div class="about-c">
+                    <div class="news">
+                        <div class="title" style=";">新闻</div>
+                        <div class="slides-box">
+                            <ul class="slides">
+                                {loop table="article" tid="50" limit="8" trait=",2,"}
+                                <li style="background: url({$v['litpic']}) center">
+                                    <a href="{$v['url']}" target="_blank">
+                                        <span>{fun newstr($v['title'],30)}</span>
+                                    </a>
+                                </li>
+                                {/loop}
+                            </ul>
+                        </div>
 
-                <!--</div>-->
+                        <ul class="news-list">
+                            {loop table="article" tid="50" limit="8"}
+                            <li>
+                                <a href="{$v['url']}" target="_blank" style="{$v['style']}">{fun newstr($v['title'],30)}</a>
+                                <span>{fun date('m-d', $v['addtime'])}</span>
+                            </li>
+                            {/loop}
+                        </ul>
+                    </div>
+                    <div class="company-c">
+                        <div class="title" style=";">公司简介</div>
+                        {loop table="channel" molds="gywm" tid="34" id="3" as="v" orderby="id|asc"}
+                        <div class="content-c" title="">
+                            {fun newstr(strip_tags(str_replace( '&nbsp;', '', $v['gywm_desc'])),470)}
+                        </div>
+                        {/loop}
+                    </div>
+                </div>
                 <div class="cangku-info">
                     <div class="cangku-title">
                         <img src="/skin/default/images/house-icon.jpg" height="16">仓库信息
@@ -105,9 +128,11 @@
     <script src="/skin/default/js/header.js"></script>
     <script src="/skin/default/js/index.js"></script>
     <script src="/skin/default/js/jQuery-jcMarquee.js"></script>
+    <script src="/skin/default/js/poposlides.js"></script>
     <script>
     $(function(){
         $('#Marquee_x').jcMarquee({ 'marquee':'x','margin_right':'10px','speed':20 });
+        $(".slides").poposlides();
     });
     </script>
     </body>
