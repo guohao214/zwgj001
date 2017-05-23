@@ -17,13 +17,13 @@ body {
     /* filter: blur(1px); */
     width: 100%;
     padding-bottom: 10px;
-    height: 130px;
+    height: 140px;
 }
 .banner {
 
 }
 .content {
-    padding-top: 130px;
+    padding-top: 140px;
 }
 
 /**header**/
@@ -61,6 +61,7 @@ body {
 
 .top-info .logo-info {
     float:left;
+    margin-top: 5px;
 }
 
 .top-info .top-info-right {
@@ -84,6 +85,7 @@ body {
     border:0;
     margin-bottom:0;
     min-height: 20px;
+    padding-top: 10px;
 }
 
 .navbar-nav {
