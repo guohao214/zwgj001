@@ -11,8 +11,8 @@ var $en = $("input[name=en]"),
 getZh();
 function getEn() {
     //改变仓库的值
-    $select.find('option').eq(0).html('International EnYuan');
-    $select.find('option').eq(1).html('International ZhongWei');
+    // $select.find('option').eq(0).html('International EnYuan');
+    $select.find('option').eq(0).html('International ZhongWei');
     $username.attr('placeholder', 'User Name');
     $password.attr('placeholder', 'Pass Wrod');
     $remember.find('span').html('Remember Me');
@@ -53,8 +53,8 @@ function changeEn() {
 
 
 function getZh() {
-    $select.find('option').eq(0).html('恩原国际');
-    $select.find('option').eq(1).html('中唯国际');
+    // $select.find('option').eq(0).html('恩原国际');
+    $select.find('option').eq(0).html('中唯国际');
     $username.attr('placeholder', '用户名');
     $password.attr('placeholder', '密码');
     $remember.find('span').html('记住我');
